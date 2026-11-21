@@ -1,0 +1,182 @@
+{
+  "name": "Solarpunk Rooftop Botanical Conservatory (Pass 2)",
+  "bounds": {
+    "minX": -8.25,
+    "maxX": 8.25,
+    "minZ": -8.25,
+    "maxZ": 8.25
+  },
+  "dock": {
+    "center": [
+      0.0,
+      0.0,
+      -6.75
+    ],
+    "radius": 1.95
+  },
+  "colliders": [
+    {
+      "type": "circle",
+      "name": "BED_01_NE",
+      "x": 5.15,
+      "z": -5.15,
+      "r": 2.28
+    },
+    {
+      "type": "circle",
+      "name": "BED_02_NW",
+      "x": -5.15,
+      "z": -5.15,
+      "r": 2.28
+    },
+    {
+      "type": "circle",
+      "name": "BED_03_SW",
+      "x": -5.15,
+      "z": 5.15,
+      "r": 2.28
+    },
+    {
+      "type": "circle",
+      "name": "BED_04_SE",
+      "x": 5.15,
+      "z": 5.15,
+      "r": 2.28
+    },
+    {
+      "type": "aabb",
+      "name": "Charging_Dock_Pylon",
+      "minX": -1.28,
+      "maxX": 1.28,
+      "minZ": -8.38,
+      "maxZ": -7.36
+    },
+    {
+      "type": "aabb",
+      "name": "Water_Basin",
+      "minX": -1.88,
+      "maxX": 1.88,
+      "minZ": 5.02,
+      "maxZ": 8.48
+    },
+    {
+      "type": "circle",
+      "name": "Bollard",
+      "x": 2.98,
+      "z": -2.15,
+      "r": 0.18
+    },
+    {
+      "type": "circle",
+      "name": "Bollard",
+      "x": -2.98,
+      "z": -2.15,
+      "r": 0.18
+    },
+    {
+      "type": "circle",
+      "name": "Bollard",
+      "x": -2.98,
+      "z": 2.15,
+      "r": 0.18
+    },
+    {
+      "type": "circle",
+      "name": "Bollard",
+      "x": 2.98,
+      "z": 2.15,
+      "r": 0.18
+    },
+    {
+      "type": "circle",
+      "name": "Bollard",
+      "x": 7.45,
+      "z": -1.65,
+      "r": 0.18
+    },
+    {
+      "type": "circle",
+      "name": "Bollard",
+      "x": -7.45,
+      "z": -1.65,
+      "r": 0.18
+    },
+    {
+      "type": "circle",
+      "name": "Bollard",
+      "x": -7.45,
+      "z": 1.65,
+      "r": 0.18
+    },
+    {
+      "type": "circle",
+      "name": "Bollard",
+      "x": 7.45,
+      "z": 1.65,
+      "r": 0.18
+    }
+  ],
+  "stations": [
+    {
+      "id": "BED_01_NE",
+      "label": "BOTANICAL BED 01",
+      "center": [
+        5.15,
+        0.98,
+        -5.15
+      ],
+      "approach": [
+        3.33,
+        0.0,
+        -3.33
+      ],
+      "radius": 2.95
+    },
+    {
+      "id": "BED_02_NW",
+      "label": "BOTANICAL BED 02",
+      "center": [
+        -5.15,
+        0.98,
+        -5.15
+      ],
+      "approach": [
+        -3.33,
+        0.0,
+        -3.33
+      ],
+      "radius": 2.95
+    },
+    {
+      "id": "BED_03_SW",
+      "label": "BOTANICAL BED 03",
+      "center": [
+        -5.15,
+        0.98,
+        5.15
+      ],
+      "approach": [
+        -3.33,
+        0.0,
+        3.33
+      ],
+      "radius": 2.95
+    },
+    {
+      "id": "BED_04_SE",
+      "label": "BOTANICAL BED 04",
+      "center": [
+        5.15,
+        0.98,
+        5.15
+      ],
+      "approach": [
+        3.33,
+        0.0,
+        3.33
+      ],
+      "radius": 2.95
+    }
+  ],
+  "tris": 52078
+}

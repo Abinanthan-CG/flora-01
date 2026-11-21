@@ -1,0 +1,65 @@
+{
+  "title": "FLORA-01",
+  "subtitle": "Autonomous Botanical Quadruped",
+  "fps": 24,
+  "width": 1920,
+  "height": 1080,
+  "total_frames": 1344,
+  "duration_s": 56.0,
+  "shots": [
+    {
+      "id": "S1_awakening",
+      "start_frame": 1,
+      "end_frame": 144,
+      "start_s": 0.0,
+      "end_s": 6.0,
+      "vo_file": "audio/vo_01_hook.wav",
+      "vo_start_s": 0.60
+    },
+    {
+      "id": "S2_reveal",
+      "start_frame": 145,
+      "end_frame": 336,
+      "start_s": 6.0,
+      "end_s": 14.0,
+      "vo_file": "audio/vo_02_reveal.wav",
+      "vo_start_s": 6.45
+    },
+    {
+      "id": "S3_garden",
+      "start_frame": 337,
+      "end_frame": 588,
+      "start_s": 14.0,
+      "end_s": 24.5,
+      "vo_file": "audio/vo_03_garden.wav",
+      "vo_start_s": 14.40
+    },
+    {
+      "id": "S4_mechanics",
+      "start_frame": 589,
+      "end_frame": 852,
+      "start_s": 24.5,
+      "end_s": 35.5,
+      "vo_file": "audio/vo_04_mechanics.wav",
+      "vo_start_s": 24.90
+    },
+    {
+      "id": "S5_motion",
+      "start_frame": 853,
+      "end_frame": 1116,
+      "start_s": 35.5,
+      "end_s": 46.5,
+      "vo_file": "audio/vo_05_motion.wav",
+      "vo_start_s": 35.95
+    },
+    {
+      "id": "S6_finale",
+      "start_frame": 1117,
+      "end_frame": 1344,
+      "start_s": 46.5,
+      "end_s": 56.0,
+      "vo_file": "audio/vo_06_finale.wav",
+      "vo_start_s": 46.90
+    }
+  ]
+}

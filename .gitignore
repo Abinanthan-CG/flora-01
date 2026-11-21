@@ -1,0 +1,25 @@
+# Intermediate film render frames & large video/audio exports (reproducible via film/*.py)
+film/frames/
+film/audio/
+film/x_upload_kit/
+film/*.mp4
+
+# Unpacked intermediate textures & duplicate GLBs (already packed in .blend & web-console/assets/*.glb)
+out/textures/
+out/flora_quad.glb
+out/flora_quad_web.glb
+environment/out/textures/
+environment/out/courtyard_env_web.glb
+
+# Blender backups & temp files
+*.blend1
+*.blend2
+_tmp_*
+renders/_tmp_*
+environment/renders/_tmp_*
+
+# Python / OS artifacts
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db

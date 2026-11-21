@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FLORA-01 — Interactive Botanical Quadruped Console</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css?v=4" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="viewport" aria-label="Interactive 3D viewport of FLORA-01 botanical quadruped"></div>
+
+  <!-- Loading Overlay -->
+  <div id="loader" role="status" aria-live="polite">
+    <div class="loader-card">
+      <div class="loader-head">
+        <span class="pulse-dot" aria-hidden="true"></span>
+        <span class="mono">INITIALIZING FLORA-01 RIG</span>
+      </div>
+      <div class="progress-track">
+        <div id="loader-bar" class="progress-fill"></div>
+      </div>
+      <div id="loader-text" class="loader-meta mono">Loading FLORA-01 &amp; Conservatory World...</div>
+    </div>
+  </div>
+
+  <!-- Top-Left Unit Identity & Drive Toggle -->
+  <header class="hud-top-left">
+    <div class="brand-card">
+      <div class="brand-row">
+        <span class="pulse-dot" aria-hidden="true"></span>
+        <h1>FLORA-01</h1>
+        <span class="badge mono">PASS 3 · VERIFIED</span>
+      </div>
+      <p class="subtitle">Autonomous Botanical Quadruped · Built 100% in Python &amp; Blender 5.2</p>
+      <div class="quick-actions">
+        <button id="btn-drive" class="btn-primary" type="button" aria-pressed="false">
+          <span class="kbd">WASD</span> Drive Mode
+        </button>
+        <button id="btn-sound" class="btn-ghost" type="button" aria-pressed="false" aria-label="Toggle procedural servo and footstep audio">
+          Audio: Off
+        </button>
+        <button id="btn-hide-ui" class="btn-ghost" type="button" aria-pressed="false" aria-label="Hide HUD for clean cinema view">
+          <span class="kbd">H</span> Hide UI
+        </button>
+        <span id="biome-counter" class="badge mono" title="Botanical planter beds misted &amp; bloomed">BIOME 0/4</span>
+        <button id="btn-toggle-panel" class="btn-ghost mobile-only" type="button" aria-expanded="true" aria-controls="console-drawer">
+          Controls
+        </button>
+      </div>
+    </div>
+
+    <!-- Clicked Part Inspector Card (appears when a 3D part is selected) -->
+    <section id="part-card" class="part-card hidden" aria-label="Selected part inspector">
+      <div class="part-card-head">
+        <span class="mono tag-amber">PART INSPECTOR</span>
+        <button id="btn-clear-part" class="icon-btn" type="button" aria-label="Clear part selection">&times;</button>
+      </div>
+      <div id="part-name" class="part-name mono">P_carapace_main</div>
+      <div class="part-grid mono">
+        <div><span class="lbl">BONE</span><span id="part-bone">B_torso</span></div>
+        <div><span class="lbl">TRIS</span><span id="part-tris">1,240</span></div>
+        <div><span class="lbl">ROLE</span><span id="part-role">Carapace Shell</span></div>
+      </div>
+    </section>
+  </header>
+
+  <!-- Top-Center World, Stage & Camera Bar -->
+  <nav class="hud-top-bar" aria-label="World, stage lighting and camera presets">
+    <div class="seg-group" role="group" aria-label="World environment">
+      <button class="seg-btn active" data-world="conservatory" type="button">Conservatory</button>
+      <button class="seg-btn" data-world="studio" type="button">Studio Grid</button>
+    </div>
+    <div class="seg-divider" aria-hidden="true"></div>
+    <div class="seg-group" role="group" aria-label="Lighting environment">
+      <button class="seg-btn" data-env="obsidian" type="button">Obsidian</button>
+      <button class="seg-btn active" data-env="golden" type="button">Golden Hour</button>
+      <button class="seg-btn" data-env="gallery" type="button">Gallery</button>
+    </div>
+    <div class="seg-divider" aria-hidden="true"></div>
+    <div class="seg-group" role="group" aria-label="Camera angle">
+      <button class="seg-btn active" data-cam="hero" type="button">Hero 3/4</button>
+      <button class="seg-btn" data-cam="world" type="button">Conservatory</button>
+      <button class="seg-btn" data-cam="canopy" type="button">Canopy</button>
+      <button class="seg-btn" data-cam="hydraulics" type="button">Hydraulics</button>
+      <button class="seg-btn" data-cam="rear" type="button">Rear Hoses</button>
+      <button class="seg-btn" data-cam="side" type="button">Ortho Side</button>
+    </div>
+  </nav>
+
+  <!-- Right-Side Engineering Console Drawer -->
+  <aside id="console-drawer" class="console-drawer" aria-label="Robotics engineering controls">
+    <!-- Section 1: Actions & Kinematics -->
+    <section class="panel-section">
+      <div class="section-head">
+        <h2>LOCOMOTION &amp; ACTIONS</h2>
+        <span id="active-mode-pill" class="mono pill-lime">IDLE</span>
+      </div>
+      <div class="action-grid" role="group" aria-label="Robot animations">
+        <button class="act-btn active" data-action="Idle_Scan" type="button">Idle Scan</button>
+        <button class="act-btn" data-action="Walk_Cycle" type="button">Walk Fwd</button>
+        <button class="act-btn" data-action="Walk_Back" type="button">Walk Back</button>
+        <button class="act-btn" data-action="Trot_Cycle" type="button">Trot</button>
+        <button class="act-btn" data-action="Turn_Left" type="button">Turn Left</button>
+        <button class="act-btn" data-action="Turn_Right" type="button">Turn Right</button>
+        <button class="act-btn" data-action="Inspect_Plant" type="button">Inspect</button>
+        <button class="act-btn" data-action="Sun_Bloom_Stretch" type="button">Sun Salute</button>
+      </div>
+      <div class="control-row">
+        <button id="btn-play" class="btn-sm" type="button" aria-pressed="true">Pause</button>
+        <label class="slider-wrap" for="speed-slider">
+          <span class="mono">SPEED <strong id="speed-val">1.00×</strong></span>
+          <input id="speed-slider" type="range" min="0.10" max="2.00" step="0.05" value="1.00" />
+        </label>
+      </div>
+    </section>
+
+    <!-- Section 2: Sun Tracking & Mechanical Inspection -->
+    <section class="panel-section">
+      <div class="section-head">
+        <h2>SOLAR &amp; ASSEMBLY</h2>
+        <label class="toggle-chip">
+          <input id="chk-suntrack" type="checkbox" checked />
+          <span class="mono">SUN TRACK</span>
+        </label>
+      </div>
+
+      <label class="slider-wrap" for="sun-az">
+        <span class="mono">SUN AZIMUTH <strong id="sun-az-val">38°</strong></span>
+        <input id="sun-az" type="range" min="-180" max="180" step="1" value="38" />
+      </label>
+
+      <label class="slider-wrap" for="sun-el">
+        <span class="mono">SUN ELEVATION <strong id="sun-el-val">24°</strong></span>
+        <input id="sun-el" type="range" min="12" max="78" step="1" value="24" />
+      </label>
+
+      <label class="slider-wrap" for="explode-slider">
+        <span class="mono">EXPLODED ASSEMBLY <strong id="explode-val">0%</strong></span>
+        <input id="explode-slider" type="range" min="0" max="100" step="1" value="0" />
+      </label>
+
+      <div class="toggle-row">
+        <button id="btn-skeleton" class="btn-toggle" type="button" aria-pressed="false">30-Bone Rig</button>
+        <button id="btn-wireframe" class="btn-toggle" type="button" aria-pressed="false">Wireframe</button>
+        <button id="btn-growlight" class="btn-toggle active" type="button" aria-pressed="true">Grow LEDs</button>
+      </div>
+    </section>
+
+    <!-- Section 3: Live Hydraulic Oscilloscope & Verified Telemetry -->
+    <section class="panel-section">
+      <div class="section-head">
+        <h2>HYDRAULIC TELEMETRY</h2>
+        <span id="hyd-dist-val" class="mono val-amber">306.6 mm</span>
+      </div>
+      <canvas id="hyd-scope" width="260" height="68" aria-label="Live front hydraulic piston stroke waveform"></canvas>
+      <div class="metrics-grid mono">
+        <div class="metric-box">
+          <span class="lbl">STROKE SPAN</span>
+          <span class="val">37.8 mm</span>
+        </div>
+        <div class="metric-box">
+          <span class="lbl">AIM ERROR</span>
+          <span class="val val-lime">0.0001 mm</span>
+        </div>
+        <div class="metric-box">
+          <span class="lbl">STANCE VEL</span>
+          <span id="vel-val" class="val">0.173 m/s</span>
+        </div>
+        <div class="metric-box">
+          <span class="lbl">BVH CLASHES</span>
+          <span class="val val-lime">0 / 8 ACTS</span>
+        </div>
+      </div>
+    </section>
+
+    <footer class="drawer-foot mono">
+      <span>54,910 TRIS · 80 PARTS · 30 BONES</span>
+      <span>ANYMACHINE · BLENDER 5.2</span>
+    </footer>
+  </aside>
+
+  <!-- Interactive Station Proximity Prompt -->
+  <div id="station-prompt" class="station-prompt hidden mono" role="status" aria-live="polite"></div>
+
+  <!-- Drive Mode Banner (visible when WASD Drive is active) -->
+  <div id="drive-hint" class="drive-hint hidden mono" role="status">
+    <span><strong>W/S</strong> Walk / Reverse</span>
+    <span><strong>A/D</strong> Steer / Turn</span>
+    <span><strong>SHIFT</strong> Trot (Fwd only)</span>
+    <span><strong>E</strong> Inspect &amp; Mist Bed</span>
+    <span><strong>SPACE</strong> Sun Salute</span>
+    <span><strong>ESC</strong> Exit Drive</span>
+  </div>
+
+  <!-- Bottom-Left Subtle Hint -->
+  <div id="orbit-hint" class="orbit-hint mono">
+    Press W/A/S/D to roam Conservatory · Drag to orbit · Click part to inspect · H to hide UI
+  </div>
+
+  <!-- Floating Restore UI Pill (visible only when HUD is hidden) -->
+  <button id="btn-show-ui" class="show-ui-pill hidden" type="button" aria-pressed="false" aria-label="Show HUD controls">
+    <span class="kbd">H</span> Show UI
+  </button>
+
+  <script type="module" src="./app.js?v=9"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "glb_kb": 30494.6,
+  "images": 73,
+  "textures": 144,
+  "materials": 51,
+  "meshes": 80,
+  "tris": 54910,
+  "joints": 30,
+  "actions": [
+    "Idle_Scan",
+    "Inspect_Plant",
+    "Sun_Bloom_Stretch",
+    "Trot_Cycle",
+    "Walk_Cycle"
+  ],
+  "dims_m": [
+    1.2545,
+    0.4392,
+    1.0087
+  ],
+  "min_z_m": 0.0,
+  "hero_render": "renders/glb_reimport_hero.png"
+}

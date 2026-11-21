@@ -1,0 +1,537 @@
+{
+  "name": "flora_quad",
+  "pass_version": "Pass 3 Hero Polish",
+  "parts": 80,
+  "bones": 30,
+  "actions": [
+    "Idle_Scan",
+    "Walk_Cycle",
+    "Walk_Back",
+    "Trot_Cycle",
+    "Turn_Left",
+    "Turn_Right",
+    "Inspect_Plant",
+    "Sun_Bloom_Stretch"
+  ],
+  "tris": 55770,
+  "quads": 23109,
+  "ngons": 0,
+  "verts": 31197,
+  "bbox_min": [
+    -0.6265,
+    -0.2196,
+    0.0
+  ],
+  "bbox_max": [
+    0.6266,
+    0.2196,
+    1.0087
+  ],
+  "dims_m": [
+    1.2531,
+    0.4392,
+    1.0087
+  ],
+  "target_dims_m": [
+    1.25,
+    0.44,
+    1.01
+  ],
+  "dim_err_mm": 3.1,
+  "baked_cycles_ao": true,
+  "bake_size": 1024,
+  "bake_spp": 12,
+  "hydraulic": {
+    "d_rest_mm": 306.61,
+    "d_min_mm": 290.09,
+    "d_max_mm": 327.85,
+    "stroke_mm": 37.77,
+    "L_cyl_mm": 168.64,
+    "L_rod_mm": 258.09,
+    "min_engage_mm": 98.87,
+    "min_exposed_mm": 121.45,
+    "min_lever_mm": 26.41
+  },
+  "part_table": [
+    {
+      "name": "P_chassis_spine",
+      "bone": "B_torso",
+      "tris": 1324,
+      "verts": 736
+    },
+    {
+      "name": "P_chest_grille",
+      "bone": "B_torso",
+      "tris": 600,
+      "verts": 360
+    },
+    {
+      "name": "P_carapace_main",
+      "bone": "B_torso",
+      "tris": 1608,
+      "verts": 968
+    },
+    {
+      "name": "P_solar_hood",
+      "bone": "B_torso",
+      "tris": 18,
+      "verts": 12
+    },
+    {
+      "name": "P_solar_flank_L",
+      "bone": "B_torso",
+      "tris": 18,
+      "verts": 12
+    },
+    {
+      "name": "P_solar_flank_R",
+      "bone": "B_torso",
+      "tris": 18,
+      "verts": 12
+    },
+    {
+      "name": "P_rear_pods",
+      "bone": "B_torso",
+      "tris": 1068,
+      "verts": 648
+    },
+    {
+      "name": "P_rear_pod_glows",
+      "bone": "B_torso",
+      "tris": 528,
+      "verts": 288
+    },
+    {
+      "name": "P_belly_conduit_L",
+      "bone": "B_torso",
+      "tris": 688,
+      "verts": 366
+    },
+    {
+      "name": "P_belly_conduit_R",
+      "bone": "B_torso",
+      "tris": 688,
+      "verts": 366
+    },
+    {
+      "name": "P_planter_collar",
+      "bone": "B_torso",
+      "tris": 812,
+      "verts": 488
+    },
+    {
+      "name": "P_planter_soil",
+      "bone": "B_torso",
+      "tris": 384,
+      "verts": 221
+    },
+    {
+      "name": "P_planter_moss",
+      "bone": "B_torso",
+      "tris": 5040,
+      "verts": 2646
+    },
+    {
+      "name": "P_planter_plants",
+      "bone": "B_torso",
+      "tris": 2184,
+      "verts": 1852
+    },
+    {
+      "name": "P_pedestal_turret",
+      "bone": "B_canopy_yaw",
+      "tris": 276,
+      "verts": 144
+    },
+    {
+      "name": "P_pedestal_drums",
+      "bone": "B_canopy_pitch",
+      "tris": 1532,
+      "verts": 864
+    },
+    {
+      "name": "P_pedestal_yfork",
+      "bone": "B_canopy_pitch",
+      "tris": 2524,
+      "verts": 1360
+    },
+    {
+      "name": "P_canopy_shell",
+      "bone": "B_canopy_pitch",
+      "tris": 2488,
+      "verts": 1282
+    },
+    {
+      "name": "P_canopy_solar",
+      "bone": "B_canopy_pitch",
+      "tris": 624,
+      "verts": 504
+    },
+    {
+      "name": "P_canopy_leds",
+      "bone": "B_canopy_pitch",
+      "tris": 308,
+      "verts": 168
+    },
+    {
+      "name": "P_neck_collar",
+      "bone": "B_neck",
+      "tris": 1404,
+      "verts": 720
+    },
+    {
+      "name": "P_neck_shell",
+      "bone": "B_neck",
+      "tris": 168,
+      "verts": 108
+    },
+    {
+      "name": "P_head_shell",
+      "bone": "B_head",
+      "tris": 424,
+      "verts": 264
+    },
+    {
+      "name": "P_head_bezel",
+      "bone": "B_head",
+      "tris": 176,
+      "verts": 96
+    },
+    {
+      "name": "P_head_optics",
+      "bone": "B_head",
+      "tris": 828,
+      "verts": 432
+    },
+    {
+      "name": "P_head_chin",
+      "bone": "B_head",
+      "tris": 132,
+      "verts": 72
+    },
+    {
+      "name": "P_ant_vane_L",
+      "bone": "B_ant_L",
+      "tris": 334,
+      "verts": 186
+    },
+    {
+      "name": "P_ant_tip_L",
+      "bone": "B_ant_L",
+      "tris": 44,
+      "verts": 24
+    },
+    {
+      "name": "P_ant_vane_R",
+      "bone": "B_ant_R",
+      "tris": 334,
+      "verts": 186
+    },
+    {
+      "name": "P_ant_tip_R",
+      "bone": "B_ant_R",
+      "tris": 44,
+      "verts": 24
+    },
+    {
+      "name": "P_FL_shoulder_mount",
+      "bone": "B_FL_ab",
+      "tris": 344,
+      "verts": 176
+    },
+    {
+      "name": "P_FL_shoulder_drum",
+      "bone": "B_FL_upper",
+      "tris": 1436,
+      "verts": 776
+    },
+    {
+      "name": "P_FL_shoulder_cowl",
+      "bone": "B_FL_upper",
+      "tris": 412,
+      "verts": 258
+    },
+    {
+      "name": "P_FL_shoulder_vents",
+      "bone": "B_FL_upper",
+      "tris": 352,
+      "verts": 192
+    },
+    {
+      "name": "P_FL_upper_arm",
+      "bone": "B_FL_upper",
+      "tris": 272,
+      "verts": 148
+    },
+    {
+      "name": "P_FL_elbow_drum",
+      "bone": "B_FL_lower",
+      "tris": 1436,
+      "verts": 776
+    },
+    {
+      "name": "P_FL_elbow_collar",
+      "bone": "B_FL_lower",
+      "tris": 168,
+      "verts": 108
+    },
+    {
+      "name": "P_FL_forearm",
+      "bone": "B_FL_lower",
+      "tris": 300,
+      "verts": 164
+    },
+    {
+      "name": "P_FL_hyd_barrel",
+      "bone": "B_FL_hyd_cyl",
+      "tris": 736,
+      "verts": 384
+    },
+    {
+      "name": "P_FL_hyd_rod",
+      "bone": "B_FL_hyd_rod",
+      "tris": 276,
+      "verts": 144
+    },
+    {
+      "name": "P_FL_wrist_drum",
+      "bone": "B_FL_paw",
+      "tris": 1188,
+      "verts": 608
+    },
+    {
+      "name": "P_FL_paw_ankle",
+      "bone": "B_FL_paw",
+      "tris": 254,
+      "verts": 146
+    },
+    {
+      "name": "P_FL_paw_pad",
+      "bone": "B_FL_paw",
+      "tris": 440,
+      "verts": 240
+    },
+    {
+      "name": "P_FR_shoulder_mount",
+      "bone": "B_FR_ab",
+      "tris": 344,
+      "verts": 176
+    },
+    {
+      "name": "P_FR_shoulder_drum",
+      "bone": "B_FR_upper",
+      "tris": 1436,
+      "verts": 776
+    },
+    {
+      "name": "P_FR_shoulder_cowl",
+      "bone": "B_FR_upper",
+      "tris": 412,
+      "verts": 258
+    },
+    {
+      "name": "P_FR_shoulder_vents",
+      "bone": "B_FR_upper",
+      "tris": 352,
+      "verts": 192
+    },
+    {
+      "name": "P_FR_upper_arm",
+      "bone": "B_FR_upper",
+      "tris": 272,
+      "verts": 148
+    },
+    {
+      "name": "P_FR_elbow_drum",
+      "bone": "B_FR_lower",
+      "tris": 1436,
+      "verts": 776
+    },
+    {
+      "name": "P_FR_elbow_collar",
+      "bone": "B_FR_lower",
+      "tris": 168,
+      "verts": 108
+    },
+    {
+      "name": "P_FR_forearm",
+      "bone": "B_FR_lower",
+      "tris": 300,
+      "verts": 164
+    },
+    {
+      "name": "P_FR_hyd_barrel",
+      "bone": "B_FR_hyd_cyl",
+      "tris": 736,
+      "verts": 384
+    },
+    {
+      "name": "P_FR_hyd_rod",
+      "bone": "B_FR_hyd_rod",
+      "tris": 276,
+      "verts": 144
+    },
+    {
+      "name": "P_FR_wrist_drum",
+      "bone": "B_FR_paw",
+      "tris": 1188,
+      "verts": 608
+    },
+    {
+      "name": "P_FR_paw_ankle",
+      "bone": "B_FR_paw",
+      "tris": 254,
+      "verts": 146
+    },
+    {
+      "name": "P_FR_paw_pad",
+      "bone": "B_FR_paw",
+      "tris": 440,
+      "verts": 240
+    },
+    {
+      "name": "P_RL_hip_mount",
+      "bone": "B_RL_ab",
+      "tris": 344,
+      "verts": 176
+    },
+    {
+      "name": "P_RL_hip_drum",
+      "bone": "B_RL_thigh",
+      "tris": 1436,
+      "verts": 776
+    },
+    {
+      "name": "P_RL_hip_cowl",
+      "bone": "B_RL_thigh",
+      "tris": 200,
+      "verts": 126
+    },
+    {
+      "name": "P_RL_thigh",
+      "bone": "B_RL_thigh",
+      "tris": 184,
+      "verts": 100
+    },
+    {
+      "name": "P_RL_knee_drum",
+      "bone": "B_RL_shin",
+      "tris": 1436,
+      "verts": 776
+    },
+    {
+      "name": "P_RL_knee_collar",
+      "bone": "B_RL_shin",
+      "tris": 336,
+      "verts": 216
+    },
+    {
+      "name": "P_RL_shin",
+      "bone": "B_RL_shin",
+      "tris": 312,
+      "verts": 168
+    },
+    {
+      "name": "P_RL_hock_drum",
+      "bone": "B_RL_hock",
+      "tris": 1188,
+      "verts": 608
+    },
+    {
+      "name": "P_RL_metatarsal",
+      "bone": "B_RL_hock",
+      "tris": 88,
+      "verts": 48
+    },
+    {
+      "name": "P_RL_paw_ankle",
+      "bone": "B_RL_paw",
+      "tris": 254,
+      "verts": 146
+    },
+    {
+      "name": "P_RL_paw_pad",
+      "bone": "B_RL_paw",
+      "tris": 440,
+      "verts": 240
+    },
+    {
+      "name": "P_RL_hose_flex",
+      "bone": "B_RL_thigh",
+      "tris": 744,
+      "verts": 394
+    },
+    {
+      "name": "P_RR_hip_mount",
+      "bone": "B_RR_ab",
+      "tris": 344,
+      "verts": 176
+    },
+    {
+      "name": "P_RR_hip_drum",
+      "bone": "B_RR_thigh",
+      "tris": 1436,
+      "verts": 776
+    },
+    {
+      "name": "P_RR_hip_cowl",
+      "bone": "B_RR_thigh",
+      "tris": 200,
+      "verts": 126
+    },
+    {
+      "name": "P_RR_thigh",
+      "bone": "B_RR_thigh",
+      "tris": 184,
+      "verts": 100
+    },
+    {
+      "name": "P_RR_knee_drum",
+      "bone": "B_RR_shin",
+      "tris": 1436,
+      "verts": 776
+    },
+    {
+      "name": "P_RR_knee_collar",
+      "bone": "B_RR_shin",
+      "tris": 336,
+      "verts": 216
+    },
+    {
+      "name": "P_RR_shin",
+      "bone": "B_RR_shin",
+      "tris": 312,
+      "verts": 168
+    },
+    {
+      "name": "P_RR_hock_drum",
+      "bone": "B_RR_hock",
+      "tris": 1188,
+      "verts": 608
+    },
+    {
+      "name": "P_RR_metatarsal",
+      "bone": "B_RR_hock",
+      "tris": 88,
+      "verts": 48
+    },
+    {
+      "name": "P_RR_paw_ankle",
+      "bone": "B_RR_paw",
+      "tris": 254,
+      "verts": 146
+    },
+    {
+      "name": "P_RR_paw_pad",
+      "bone": "B_RR_paw",
+      "tris": 440,
+      "verts": 240
+    },
+    {
+      "name": "P_RR_hose_flex",
+      "bone": "B_RR_thigh",
+      "tris": 744,
+      "verts": 394
+    }
+  ]
+}

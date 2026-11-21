@@ -1,0 +1,8 @@
+{
+  "rest_min_z_mm": -0.0,
+  "worst_ground_pen_mm": -0.0,
+  "worst_hyd_misalign_mm": 0.0001,
+  "rest_overlap_pairs": 15,
+  "new_action_clashes": 0,
+  "clashes": []
+}
