@@ -11,7 +11,8 @@ out/flora_quad_web.glb
 environment/out/textures/
 environment/out/courtyard_env_web.glb
 
-# Blender backups & temp files
+# Blender source & backup files (deterministically reproducible via build_quadruped.py & environment/build_environment.py)
+*.blend
 *.blend1
 *.blend2
 _tmp_*

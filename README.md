@@ -58,8 +58,7 @@
 │   ├── LAYOUT.md              # 18m × 18m Conservatory site plan & collider spec
 │   ├── build_environment.py   # Headless Blender 5.2 generator (FFT PBR textures, Cycles Contact AO, GLB/blend)
 │   ├── refs/                  # Architectural concept & top-down plan references
-│   └── out/courtyard_env.blend
-├── out/flora_quad.blend       # Full packed Blender 5.2 source asset
+│   └── renders/               # 4-view Conservatory preview render
 ├── refs/                      # Concept, 6-view turnaround & 3 macro mechanical reference plates
 ├── renders/                   # Verified Cycles beauty, turnaround comparison, face & gimbal QA renders
 └── film/                      # Launch film Blender camera scripts, procedural soundtrack & FFmpeg assembly pipeline
